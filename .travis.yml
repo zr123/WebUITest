@@ -1,0 +1,17 @@
+dist:trusty
+
+addons:
+  chrome: stable
+  
+services:
+  - xvfb
+  
+install:
+  - pip install robotframework
+  - pip install selenium
+  - pip install robotframework-seleniumlibrary
+  - gem install watir
+  
+ script:
+  - xvfb-run robot RobotFramework/google.robot
+  
