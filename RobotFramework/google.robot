@@ -3,7 +3,7 @@ Library             SeleniumLibrary
 
 *** Variables ***
 ${SERVER}           https://www.google.com/
-${BROWSER}          ie
+${BROWSER}          chrome
 ${DELAY}            1
 
 *** Test Cases ***
