@@ -1,9 +1,3 @@
-install:
-  - pip install robotframework
-  - pip install selenium
-  - pip install robotframework-seleniumlibrary
-  - gem install watir
-  
 script:
   - cd javacucumber
   - mvn validate
