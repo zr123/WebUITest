@@ -1,0 +1,95 @@
+{
+  "id": "5ce07f2d-5726-4f17-a1a4-42f0c7bf9c7d",
+  "version": "2.0",
+  "name": "wikipedia",
+  "url": "https://en.wikipedia.org",
+  "tests": [{
+    "id": "e676ef4c-06c5-4656-ae21-c6889acf5510",
+    "name": "Random Article",
+    "commands": [{
+      "id": "b307dabb-e4b3-4c1a-911b-0dab55f4efe7",
+      "comment": "",
+      "command": "open",
+      "target": "/wiki/Main_Page",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9b6408b9-a44a-4183-a14b-976720e403ce",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "780x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79c5d6a7-059d-489b-9e4a-ed31071f901f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Random article",
+      "targets": [
+        ["linkText=Random article", "linkText"],
+        ["css=#n-randompage > a", "css:finder"],
+        ["css=a[title=\"Load a random article [Alt+Umschalt+x]\"]", "css"],
+        ["xpath=//a[contains(text(),'Random article')]", "xpath:link"],
+        ["xpath=//li[@id='n-randompage']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Special:Random')]", "xpath:href"],
+        ["xpath=//div[2]/div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00707f2d-72b3-402e-b269-11fd1a945ec3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Random article",
+      "targets": [
+        ["linkText=Random article", "linkText"],
+        ["css=#n-randompage > a", "css:finder"],
+        ["css=a[title=\"Load a random article [Alt+Umschalt+x]\"]", "css"],
+        ["xpath=//a[contains(text(),'Random article')]", "xpath:link"],
+        ["xpath=//li[@id='n-randompage']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Special:Random')]", "xpath:href"],
+        ["xpath=//div[2]/div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c815cdbf-0329-41d6-920d-e640eb946010",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Random article",
+      "targets": [
+        ["linkText=Random article", "linkText"],
+        ["css=#n-randompage > a", "css:finder"],
+        ["css=a[title=\"Load a random article [Alt+Umschalt+x]\"]", "css"],
+        ["xpath=//a[contains(text(),'Random article')]", "xpath:link"],
+        ["xpath=//li[@id='n-randompage']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Special:Random')]", "xpath:href"],
+        ["xpath=//div[2]/div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2cc2af86-ab5d-476b-8f62-fff996bad0f1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Random article",
+      "targets": [
+        ["linkText=Random article", "linkText"],
+        ["css=#n-randompage > a", "css:finder"],
+        ["css=a[title=\"Load a random article [Alt+Umschalt+x]\"]", "css"],
+        ["xpath=//a[contains(text(),'Random article')]", "xpath:link"],
+        ["xpath=//li[@id='n-randompage']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Special:Random')]", "xpath:href"],
+        ["xpath=//div[2]/div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0b4faa57-d4eb-455b-8eb5-096e2805fa8e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e676ef4c-06c5-4656-ae21-c6889acf5510"]
+  }],
+  "urls": ["https://en.wikipedia.org/"],
+  "plugins": []
+}
