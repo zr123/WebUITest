@@ -7,6 +7,11 @@
 # BlueJ files
 *.ctxt
 
+# RobotFramework
+output.xml
+report.html
+log.html
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
