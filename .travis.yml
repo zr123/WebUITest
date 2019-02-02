@@ -18,9 +18,9 @@ before_script:
   - sleep 3
   
 install:
-  - pip install robotframework
-  - pip install selenium
-  - pip install robotframework-seleniumlibrary
+  - pip3 install robotframework
+  - pip3 install selenium
+  - pip3 install robotframework-seleniumlibrary
   
 script:
   # javacucumber
