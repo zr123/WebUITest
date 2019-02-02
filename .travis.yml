@@ -9,6 +9,7 @@ addons:
     packages:
       - chromium-chromedriver
       - google-chrome-stable
+      - python3.5
 
 before_script:
   - ln --symbolic /usr/lib/chromium-browser/chromedriver "${HOME}/bin/chromedriver"
