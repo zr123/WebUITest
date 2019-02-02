@@ -31,7 +31,6 @@ public class Google {
     @Given("^that i am on \"([^\"]*)\"$")
     public void thatIAmOn(String arg0) throws Throwable {
         driver.get(arg0);
-        driver.manage().window().maximize();
     }
 
     @When("^i enter bundesbank and press enter$")
