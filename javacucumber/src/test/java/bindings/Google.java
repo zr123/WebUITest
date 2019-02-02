@@ -16,7 +16,6 @@ public class Google {
 
     @Given("^that i am on \"([^\"]*)\"$")
     public void thatIAmOn(String arg0) throws Throwable {
-        System.setProperty("webdriver.chrome.driver", "C:\\Daten\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get(arg0);
