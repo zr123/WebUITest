@@ -9,7 +9,6 @@ ${DELAY}            1
 *** Test Cases ***
 User can search bundesbank
     Open Browser                ${SERVER}                               ${BROWSER}
-    Maximize Browser Window
     Set Selenium Speed          ${DELAY}
     Input Text                  q                                       bundesbank
     Press Keys                  None                                    ENTER
