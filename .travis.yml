@@ -20,6 +20,7 @@ before_script:
   
 install:
   - npm install -g selenium-side-runner
+  - gem install watir
   
 script:
   # javacucumber
@@ -29,4 +30,8 @@ script:
   - cd ..
   # selenium-side-runner
   - selenium-side-runner SeleniumIDE\*.side-runner
+  # watir
+  - ruby watir\google.rb
+  - ruby watir\minimal_wikipedia.rb
+
 
