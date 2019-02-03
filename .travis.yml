@@ -9,7 +9,10 @@ addons:
     packages:
       - chromium-chromedriver
       - google-chrome-stable
-      - python3.5
+
+language: python
+python:
+  - "3.6"
 
 before_script:
   - ln --symbolic /usr/lib/chromium-browser/chromedriver "${HOME}/bin/chromedriver"
@@ -21,6 +24,7 @@ before_script:
 install:
   - npm install -g selenium-side-runner
   - gem install watir
+  - pip install robotframework
   
 script:
   # javacucumber
