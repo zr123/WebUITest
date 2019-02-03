@@ -27,4 +27,6 @@ script:
   - mvn validate
   - mvn test
   - cd ..
+  # selenium-side-runner
+  - selenium-side-runner SeleniumIDE\*.side-runner
 
