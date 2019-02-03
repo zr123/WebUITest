@@ -25,6 +25,8 @@ install:
   - npm install -g selenium-side-runner
   - gem install watir
   - pip install robotframework
+  - pip install selenium
+  - pip install robotframework-seleniumlibrary
   
 script:
   # javacucumber
@@ -37,3 +39,6 @@ script:
   # watir
   - ruby watir/google.rb
   - ruby watir/minimal_wikipedia.rb
+  # robot framework
+  - robot RobotFramework
+
