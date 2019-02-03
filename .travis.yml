@@ -19,9 +19,7 @@ before_script:
   - sleep 3
   
 install:
-  - pip install robotframework
-  - pip install selenium
-  - pip install robotframework-seleniumlibrary
+  - npm install -g selenium-side-runner
   
 script:
   # javacucumber
@@ -29,6 +27,4 @@ script:
   - mvn validate
   - mvn test
   - cd ..
-  # robotframework
-  - robot RobotFramework
 
