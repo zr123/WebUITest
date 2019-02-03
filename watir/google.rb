@@ -1,6 +1,6 @@
 require 'watir'
 
-browser = Watir::Browser.new :ie
+browser = Watir::Browser.new :chrome
 browser.goto 'https://www.google.com/'
 sleep 1
 browser.element(name: "q").set("bundesbank")
