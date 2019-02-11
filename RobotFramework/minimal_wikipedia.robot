@@ -1,9 +1,12 @@
 *** Settings ***
 Library     SeleniumLibrary
 
+*** Variables ***
+${BROWSER}          chrome
+
 *** Test Cases ***
 Mein Beispieltest: Zufälligen Artikel bei Wikipedia klicken
-    Open Browser        https://de.wikipedia.org        chrome
+    Open Browser        https://de.wikipedia.org        ${BROWSER}
     Set Selenium Speed  1
     Click Link          Zufälliger Artikel
     [Teardown]          Close Browser
