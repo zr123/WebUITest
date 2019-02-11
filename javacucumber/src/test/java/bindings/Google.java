@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,12 +37,15 @@ public class Google {
     public void iEnterBundesbankAndPressEnter() throws Throwable {
         driver.findElement(By.name("q")).sendKeys("bundesbank");
         driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-        Thread.sleep(1000);
     }
 
     @Then("^the first result will be the website of bundesbank$")
     public void theFirstResultWillBeTheWebsiteOfBundesbank() throws Throwable {
         driver.findElement(By.xpath("//h3[text()='Deutsche Bundesbank: Startseite']")).click();
-        Thread.sleep(1000);
+    }
+    
+    @Then("^i can click \"([^\"]*)\"$")
+    public void i_can_click(String arg1) throws Throwable {
+    	driver.findElement(By.linkText(arg1)).click();
     }
 }
