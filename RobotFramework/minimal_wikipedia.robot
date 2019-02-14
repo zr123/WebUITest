@@ -1,12 +1,12 @@
 *** Settings ***
 Library     SeleniumLibrary
 
-*** Variables ***
-${BROWSER}          chrome
-
 *** Test Cases ***
 Mein Beispieltest: Zufälligen Artikel bei Wikipedia klicken
-    Open Browser        https://de.wikipedia.org        ${BROWSER}
-    Set Selenium Speed  1
-    Click Link          Zufälliger Artikel
-    [Teardown]          Close Browser
+    Open Browser                    https://www.google.com/             ie
+    Set Selenium Implicit Wait      5
+    Input Text                      q                                   wikipedia
+    Submit Form
+    Click Element                   xpath://h3[text()='Wikipedia']
+    Title Should Be                 Wikipedia
+    [Teardown]                      Close Browser
