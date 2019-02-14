@@ -2,7 +2,7 @@
 Library     SeleniumLibrary
 
 *** Test Cases ***
-Mein Beispieltest: Zufälligen Artikel bei Wikipedia klicken
+Mein Beispieltest: Bei Google nach Wikipedia gucken
     Open Browser                    https://www.google.com/             ie
     Set Selenium Implicit Wait      5
     Input Text                      q                                   wikipedia
