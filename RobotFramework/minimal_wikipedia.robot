@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 
 *** Test Cases ***
 Mein Beispieltest: Bei Google nach Wikipedia gucken
-    Open Browser                    https://www.google.com/             ie
+    Open Browser                    https://www.google.com/             chrome
     Set Selenium Implicit Wait      5
     Input Text                      q                                   wikipedia
     Submit Form
