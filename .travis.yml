@@ -29,6 +29,11 @@ install:
   - pip install robotframework-seleniumlibrary
   
 script:
+  # javaselenium
+  - cd javaselenium
+  - mvn validate
+  - mvn test
+  - cd ..
   # javacucumber
   - cd javacucumber
   - mvn validate
