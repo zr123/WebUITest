@@ -41,9 +41,10 @@ script:
   - cd ..
   # selenium-side-runner
   - selenium-side-runner SeleniumIDE\*.side-runner
+  # rubyselenium
+  - ruby rubyselenium/minimal_wikipedia.rb
   # watir
   - ruby watir/google.rb
   - ruby watir/minimal_wikipedia.rb
   # robot framework
   - robot RobotFramework
-
