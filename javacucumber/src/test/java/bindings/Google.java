@@ -1,16 +1,13 @@
 package bindings;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import cucumber.api.java.*;
+import cucumber.api.java.en.*;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class Google {
@@ -27,24 +24,25 @@ public class Google {
         driver.quit();
     }
 
-    @Given("^that i am on \"([^\"]*)\"$")
-    public void thatIAmOn(String arg0) throws Throwable {
-        driver.get(arg0);
+    @Given("^that I am on \"([^\"]*)\"$")
+    public void that_I_am_on(String arg1) throws Throwable {
+        driver.get(arg1);
     }
 
-    @When("^i enter bundesbank and press enter$")
-    public void iEnterBundesbankAndPressEnter() throws Throwable {
-        driver.findElement(By.name("q")).sendKeys("bundesbank");
-        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+    @When("^I insert \"([^\"]*)\" and press enter$")
+    public void i_insert_and_press_enter(String arg1) throws Throwable {
+        WebElement input = driver.findElement(By.name("q"));
+        input.sendKeys(arg1);
+        input.submit();
     }
 
-    @Then("^the first result will be the website of bundesbank$")
-    public void theFirstResultWillBeTheWebsiteOfBundesbank() throws Throwable {
-        driver.findElement(By.xpath("//h3[text()='Deutsche Bundesbank: Startseite']")).click();
+    @When("^I click the link with the text \"([^\"]*)\"$")
+    public void i_click_the_link_with_the_text(String arg1) throws Throwable {
+        driver.findElement(By.xpath("//*[text()='" + arg1 + "']")).click();
     }
-    
-    @Then("^i can click \"([^\"]*)\"$")
-    public void i_can_click(String arg1) throws Throwable {
-    	driver.findElement(By.linkText(arg1)).click();
+
+    @Then("^then I will be on the website with the title \"([^\"]*)\"$")
+    public void then_I_will_be_on_the_website_with_the_title(String arg1) throws Throwable {
+        assertEquals(arg1, driver.getTitle());
     }
 }
