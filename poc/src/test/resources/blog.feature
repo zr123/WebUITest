@@ -3,20 +3,18 @@
 Funktionalität: blog
 
   Szenario: Ich siehe mir den Blog an
-    Wenn ich auf dem Blog bin
+    Gegeben sei ich bin auf dem Blog
     Dann möchte ich die neusten Blogeinträge sehen
 
   Szenario: Ich kann die Blogeinträge nach Kategorie filtern
-    Wenn ich auf dem Blog bin
-    Und ich den Filter "Politik" auswähle
-    Und den Filter anwende
+    Gegeben sei ich bin auf dem Blog
+    Wenn ich den Filter "Politik" anwende
     Dann möchte ich Einräge der Kategorie "Politik" sehen
     Und ich möchte keine Einträge außer "Politik" sehen
 
   Szenariogrundriss: Ein Benutzer loggt sich ein
-    Wenn ich auf der Loginseite bin
-    Und ein Benutzer seinen <Name> und sein <Passwort> eingibt
-    Und er auf "Einloggen" klickt
+    Gegeben sei ich bin auf der Loginseite
+    Wenn ein Benutzer seinen <Name> und sein <Passwort> eingibt
     Dann soll er eingeloggt werden wenn es <Stimmt>
     Und er soll nicht eingeloggt werden wenn es nicht <Stimmt>
 
