@@ -1,0 +1,35 @@
+{
+  "id": "7c7ef9ff-8788-442c-b14b-94a0ffbbf57d",
+  "version": "2.0",
+  "name": "basic",
+  "url": "http://localhost:8090",
+  "tests": [{
+    "id": "fcf875c8-502b-4dfb-880c-baf932a6c8ea",
+    "name": "Titel",
+    "commands": [{
+      "id": "c64454ac-71b3-464d-9cea-8b480058d0bc",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "801c2972-7dad-43e5-957d-cd4de7cd8aa5",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Ein Blog",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9cbf6ae8-2c45-4235-8720-4e060588d57e",
+    "name": "TestSuite1",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fcf875c8-502b-4dfb-880c-baf932a6c8ea"]
+  }],
+  "urls": ["http://localhost:8090/"],
+  "plugins": []
+}
