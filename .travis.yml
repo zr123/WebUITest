@@ -40,10 +40,18 @@ script:
   - mvn test
   - cd ..
   # selenium-side-runner
-  - selenium-side-runner SeleniumIDE\*.side-runner
+  - selenium-side-runner SeleniumIDE/*.side
   # rubyselenium
   - ruby rubyselenium/minimal_wikipedia.rb
   # watir
   - ruby watir/minimal_wikipedia.rb
   # robot framework
   - robot RobotFramework
+  # poc
+  - cd poc
+  - mvn jetty:start &
+  - sleep 15
+  - mvn test
+  - selenium-side-runner src/test/resources/sides/*.side
+  - mvn jetty:stop
+  - cd ..
