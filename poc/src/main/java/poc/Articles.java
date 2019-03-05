@@ -3,6 +3,7 @@ package poc;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,20 +14,17 @@ import java.util.List;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Articles {
+class Articles {
 
     @XmlElement(name = "article")
-    public List<Article> articles;
+    private List<Article> articles;
 
-    public Articles(){
+    Articles(){
         articles = new ArrayList<>();
     }
 
-    public void exportArticles(String path) throws JAXBException {
-        File file = new File(path);
-        JAXBContext context = JAXBContext.newInstance(Articles.class);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.marshal(this, file);
+    Articles(List<Article> articles){
+        this.articles = articles;
     }
 
     public List<Article> getArticles() {

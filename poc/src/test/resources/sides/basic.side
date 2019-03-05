@@ -13,13 +13,6 @@
       "target": "/",
       "targets": [],
       "value": ""
-    }, {
-      "id": "801c2972-7dad-43e5-957d-cd4de7cd8aa5",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "Ein Blog",
-      "targets": [],
-      "value": ""
     }]
   }],
   "suites": [{
