@@ -11,7 +11,31 @@
 
 <h:body>
 
-    <h1>BLOG</h1>
+    <div style="width:1200px; align:center; margin: 0 auto">
+
+        <div id="header" style="text-align:center; padding:20px; margin: 5px; border:1px solid black">
+            <h1>BLOG</h1>
+        </div>
+
+        <div id="menu" style="width:250px; display:inline-block; vertical-align:top; margin: 5px; border:1px solid black">
+            <h:form>
+                <p:selectCheckboxMenu label="Kategorie" style="margin:10px">
+                    <f:selectItems value="#{indexBean.categories}"/>
+                </p:selectCheckboxMenu>
+                <br/>
+                <p:commandButton value="Filter" style="margin:10px"/>
+            </h:form>
+        </div>
+        <div id="content" style="width:920px; display:inline-block; margin: 5px;">
+            <p:dataList id="articlelist" value="#{indexBean.articles}" var="articles" type="definition">
+                <p:panel id="articles" header="#{articles.title}" footer="Von #{articles.author} am #{articles.date}" style="margin:10px">
+                    <h:outputText value="#{articles.content}"/>
+                </p:panel>
+
+            </p:dataList>
+        </div>
+    </div>
+
 
 </h:body>
 </html>
