@@ -2,14 +2,12 @@ package beans;
 
 import poc.Article;
 import poc.Category;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-import javax.management.Notification;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
 import java.util.ArrayList;
@@ -39,7 +37,9 @@ public class IndexBean {
     }
 
     public void filterCategories(){
-        throw new NotImplementedException();
+        // TODO
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "test", null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
     public void setArticles(List<Article> articles) {

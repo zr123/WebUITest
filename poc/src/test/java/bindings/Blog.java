@@ -1,16 +1,31 @@
 package bindings;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.de.Dann;
 import cucumber.api.java.de.Gegebensei;
 import cucumber.api.java.de.Wenn;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Blog {
 
+    private WebDriver driver;
+
+    @Before
+    public void setup(){
+        driver = new ChromeDriver();
+    }
+
+    @After
+    public void teardown(){
+        driver.close();
+    }
+
     @Gegebensei("^ich bin auf dem Blog$")
     public void ich_bin_auf_dem_Blog() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.get("localhost:8090/index.xhtml");
     }
 
     @Dann("^möchte ich die neusten Blogeinträge sehen$")

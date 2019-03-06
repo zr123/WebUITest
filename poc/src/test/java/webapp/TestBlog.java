@@ -4,7 +4,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
@@ -25,7 +27,7 @@ public class TestBlog {
 
     @Before
     public void before(){
-        driver.get("localhost:8090/index.xhtml");
+        driver.get("http://localhost:8090/index.xhtml");
     }
 
     @Test
@@ -33,5 +35,9 @@ public class TestBlog {
         assertEquals("Ein Blog", driver.getTitle());
     }
 
-
+    @Test
+    public void testHeader() throws InterruptedException {
+        WebElement header = driver.findElement(By.id("header"));
+        assertEquals("BLOG", header.getText());
+    }
 }
