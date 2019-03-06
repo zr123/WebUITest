@@ -1,5 +1,6 @@
 package poc;
 
+import javax.faces.model.SelectItem;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,14 @@ public class Category {
         categories.add(new Category("Politics"));
         categories.add(new Category("Photography"));
         categories.add(new Category("Politics"));
+        return categories;
+    }
+
+    public static List<SelectItem> getCategoriesAsSelectItems(){
+        List<SelectItem> categories = new ArrayList<>();
+        for (Category category : Category.getCategories()) {
+            categories.add(new SelectItem(category.getName(), category.getName()));
+        }
         return categories;
     }
 

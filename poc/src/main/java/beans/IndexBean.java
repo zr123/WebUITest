@@ -10,7 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
-import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
@@ -20,20 +19,28 @@ public class IndexBean {
 
     private List<SelectItem> categories;
 
+    public static String articleFile = "src/main/resources/articles.xml";
+
     @PostConstruct
     public void init(){
+        articles = loadArticles();
+        categories = Category.getCategoriesAsSelectItems();
+    }
+
+    public static List<Article> loadArticles(){
+        List<Article> articles = null;
         try {
-            articles = Article.importArticles("src/main/resources/articles.xml");
+            articles = Article.importArticles(articleFile);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        categories = new ArrayList<>();
-        for (Category category : Category.getCategories()) {
-            categories.add(new SelectItem(category.getName(), category.getName()));
-        }
+        return Article.sortArticlesByDate(filterArticles(articles));
+    }
+
+    public static List<Article> filterArticles(List<Article> articles){
         HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         String filter = req.getParameter("category");
-        articles = Article.filterArticleCategories(articles, filter);
+        return Article.filterArticleCategories(articles, filter);
     }
 
     public void filterCategories(){

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -139,5 +140,20 @@ public class TestArticle {
         assertEquals(filteredArticles.size(), 3);
         assertEquals(articles.size(), 3);
         assertEquals(articles, filteredArticles);
+    }
+
+    @Test
+    public void testSortArticlesByDate(){
+        List<Article> datedArticles = new ArrayList<>();
+        datedArticles.add(new Article("", "oldest", ""));
+        datedArticles.get(0).setDate(new Date(3600));
+        datedArticles.add(new Article("", "newest", ""));
+        datedArticles.get(1).setDate(new Date(7200));
+        datedArticles.add(new Article("", "middle", ""));
+        datedArticles.get(2).setDate(new Date(4800));
+        List<Article> sortedArticles = Article.sortArticlesByDate(datedArticles);
+        assertEquals("newest", sortedArticles.get(0).getTitle());
+        assertEquals("middle", sortedArticles.get(1).getTitle());
+        assertEquals("oldest", sortedArticles.get(2).getTitle());
     }
 }

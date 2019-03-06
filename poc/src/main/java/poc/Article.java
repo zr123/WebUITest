@@ -9,10 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @XmlRootElement(name = "article")
@@ -20,19 +17,19 @@ import java.util.stream.Collectors;
 public class Article{
 
     @XmlElement
-    public String author = "";
+    private String author = "";
 
     @XmlElement
-    public String title = "";
+    private String title = "";
 
     @XmlElement
-    public String content = "";
+    private String content = "";
 
     @XmlElement
-    public Date date;
+    private Date date;
 
     @XmlElement
-    public String category = "";
+    private String category = "";
 
     public Article(){}
 
@@ -73,6 +70,12 @@ public class Article{
         if(categories == null || categories.isEmpty())
             return new ArrayList<>(articles);
         return articles.stream().filter(a -> categories.contains(a.getCategory())).collect(Collectors.toList());
+    }
+
+    public static List<Article> sortArticlesByDate(List<Article> articles){
+        if(articles == null)
+            return new ArrayList<>();
+        return articles.stream().sorted(Comparator.comparing(Article::getDate).reversed()).collect(Collectors.toList());
     }
 
     public String getAuthor() {

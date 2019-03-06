@@ -1,13 +1,18 @@
 package bindings;
 
+import beans.IndexBean;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.de.Dann;
 import cucumber.api.java.de.Gegebensei;
 import cucumber.api.java.de.Wenn;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import poc.Article;
 
 public class Blog {
 
@@ -30,8 +35,10 @@ public class Blog {
 
     @Dann("^möchte ich die neusten Blogeinträge sehen$")
     public void möchte_ich_die_neusten_Blogeinträge_sehen() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Article newestArticle = IndexBean.loadArticles().get(0);
+        WebElement panel = driver.findElement(By.id("articlelist:0:articles"));
+        // TODO fancy-schmancy PrimeWrapper benutzen
+        Assert.assertEquals(newestArticle.getTitle(), driver.findElement(By.id("articlelist:0:articles_header")).getText());
     }
 
     @Wenn("^ich den Filter \"([^\"]*)\" anwende$")
