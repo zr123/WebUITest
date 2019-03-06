@@ -1,6 +1,5 @@
 package poc;
 
-import org.json.simple.parser.ParseException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -28,7 +27,7 @@ public class TestArticle {
     }
 
     @Test
-    public void testExportArticles() throws JAXBException, IOException, ParseException {
+    public void testExportArticles() throws JAXBException, IOException {
         Article.exportArticles(articles,"src/test/resources/export.xml");
         File file = new File("src/test/resources/export.xml");
         assertTrue(file.exists());
