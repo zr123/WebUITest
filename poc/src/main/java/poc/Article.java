@@ -9,8 +9,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @XmlRootElement(name = "article")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -56,8 +58,20 @@ public class Article{
         return articles.getArticles();
     }
 
-    public static List<Article> loadArticles(String text){
-        return null;
+    public static List<Article> filterArticleCategories(List<Article> articles, String category){
+        if(articles == null)
+            return new ArrayList<>();
+        if(category == null || category.isEmpty())
+            return new ArrayList<>(articles);
+        return articles.stream().filter(a -> category.equals(a.getCategory())).collect(Collectors.toList());
+    }
+
+    public static List<Article> filterArticleCategories(List<Article> articles, List<String> categories){
+        if(articles == null)
+            return new ArrayList<>();
+        if(categories == null || categories.isEmpty())
+            return new ArrayList<>(articles);
+        return articles.stream().filter(a -> categories.contains(a.getCategory())).collect(Collectors.toList());
     }
 
     public String getAuthor() {
@@ -101,7 +115,7 @@ public class Article{
     }
 
     public boolean equals(Object obj){
-        if(obj.getClass() != Article.class)
+        if(!(obj instanceof Article))
             return false;
         Article article = (Article) obj;
         return  this.author.equals(article.author) &&

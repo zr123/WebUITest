@@ -23,12 +23,17 @@
                     <f:selectItems value="#{indexBean.categories}"/>
                 </p:selectCheckboxMenu>
                 <br/>
-                <p:commandButton value="Filter" style="margin:10px"/>
+                <p:commandButton value="filter?" style="margin:10px" action="#{indexBean.filterCategories}" ajax="false"/>
+                <!--
+                    <p:button value="Filter" style="margin:10px" outcome="index.xhtml">
+                        <f:param name="category" />
+                    </p:button>
+                -->
             </h:form>
         </div>
         <div id="content" style="width:920px; display:inline-block; margin: 5px;">
             <p:dataList id="articlelist" value="#{indexBean.articles}" var="articles" type="definition">
-                <p:panel id="articles" header="#{articles.title}" footer="Von #{articles.author} am #{articles.date}" style="margin:10px">
+                <p:panel id="articles" header="#{articles.title}" footer="Von #{articles.author} am #{articles.date} [#{articles.category}]" style="margin:10px">
                     <h:outputText value="#{articles.content}"/>
                 </p:panel>
 

@@ -16,14 +16,19 @@ import static org.junit.Assert.*;
 
 public class TestArticle {
 
-    static List<Article> articles = new ArrayList<>();
+    private static List<Article> articles = new ArrayList<>();
 
     @BeforeClass
     public static void init(){
         articles.add(new Article("zr123", "Title", "Content"));
         articles.get(0).setDate(new Date(0));
+        articles.get(0).setCategory("Politics");
         articles.add(new Article("someone", "test", "Lorem Ipsum"));
         articles.get(1).setDate(new Date(0));
+        articles.get(1).setCategory("Sports");
+        articles.add(new Article("Picasso", "Photos", "Insert Photos here"));
+        articles.get(2).setDate(new Date(0));
+        articles.get(2).setCategory("Photography");
     }
 
     @Test
@@ -33,10 +38,10 @@ public class TestArticle {
         assertTrue(file.exists());
         List<String> lines = Files.readAllLines(Paths.get("src/test/resources/export.xml"));
         assertEquals(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><articles><article><author>zr123</author><title>Title</title><content>Content</content><date>1970-01-01T01:00:00+01:00</date><category></category></article><article><author>someone</author><title>test</title><content>Lorem Ipsum</content><date>1970-01-01T01:00:00+01:00</date><category></category></article></articles>",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><articles><article><author>zr123</author><title>Title</title><content>Content</content><date>1970-01-01T01:00:00+01:00</date><category>Politics</category></article><article><author>someone</author><title>test</title><content>Lorem Ipsum</content><date>1970-01-01T01:00:00+01:00</date><category>Sports</category></article><article><author>Picasso</author><title>Photos</title><content>Insert Photos here</content><date>1970-01-01T01:00:00+01:00</date><category>Photography</category></article></articles>",
                 lines.get(0)
         );
-        file.delete();
+        assertTrue(file.delete());
     }
 
     @Test
@@ -45,5 +50,95 @@ public class TestArticle {
         assertNotNull(articleList);
         assertEquals(articles.get(0), articleList.get(0));
         assertEquals(articles.get(1), articleList.get(1));
+        assertEquals(articles.get(2), articleList.get(2));
+    }
+
+    @Test
+    public void testFilterArticleCategories1(){
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, "Politics");
+        assertEquals(filteredArticles.size(), 1);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles.get(0), filteredArticles.get(0));
+    }
+
+    @Test
+    public void testFilterArticleCategories2(){
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, "Sports");
+        assertEquals(filteredArticles.size(), 1);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles.get(1), filteredArticles.get(0));
+    }
+
+    @Test
+    public void testFilterArticleCategories_empty(){
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, "");
+        assertEquals(filteredArticles.size(), 3);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles, filteredArticles);
+    }
+
+    @Test
+    public void testFilterArticleCategories_null(){
+        String nullString = null;
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, nullString);
+        assertEquals(filteredArticles.size(), 3);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles, filteredArticles);
+    }
+
+    @Test
+    public void testFilterArticleCategories_nullList(){
+        List<Article> filteredArticles = Article.filterArticleCategories(null, "");
+        assertEquals(filteredArticles.size(), 0);
+        assertEquals(articles.size(), 3);
+    }
+
+    @Test
+    public void testFilterArticleCategoriesList1(){
+        ArrayList<String> filter = new ArrayList<>();
+        filter.add("Politics");
+        filter.add("Photography");
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, filter);
+        assertEquals(filteredArticles.size(), 2);
+        assertEquals(articles.size(), 3);
+        assertTrue(filteredArticles.contains(articles.get(0)));
+        assertTrue(filteredArticles.contains(articles.get(2)));
+    }
+
+    @Test
+    public void testFilterArticleCategoriesList2(){
+        ArrayList<String> filter = new ArrayList<>();
+        filter.add("Sports");
+        filter.add("Art");
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, filter);
+        assertEquals(filteredArticles.size(), 1);
+        assertEquals(articles.size(), 3);
+        assertTrue(filteredArticles.contains(articles.get(1)));
+    }
+
+    @Test
+    public void testFilterArticleCategoriesList3(){
+        ArrayList<String> filter = new ArrayList<>();
+        filter.add("Unknown");
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, filter);
+        assertEquals(filteredArticles.size(), 0);
+        assertEquals(articles.size(), 3);
+    }
+
+    @Test
+    public void testFilterArticleCategoriesList_empty(){
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, new ArrayList<>());
+        assertEquals(filteredArticles.size(), 3);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles, filteredArticles);
+    }
+
+    @Test
+    public void testFilterArticleCategoriesList_null(){
+        List<String> nullList = null;
+        List<Article> filteredArticles = Article.filterArticleCategories(articles, nullList);
+        assertEquals(filteredArticles.size(), 3);
+        assertEquals(articles.size(), 3);
+        assertEquals(articles, filteredArticles);
     }
 }
