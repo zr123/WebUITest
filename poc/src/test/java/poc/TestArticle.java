@@ -1,16 +1,12 @@
 package poc;
 
 import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import poc.Article;
 
 import javax.xml.bind.JAXBException;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
