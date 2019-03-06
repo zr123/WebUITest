@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @XmlRootElement(name = "article")
@@ -28,7 +29,7 @@ public class Article{
     public String content = "";
 
     @XmlElement
-    public Date date = new Date(0);
+    public Date date;
 
     @XmlElement
     public String category = "";
@@ -118,10 +119,11 @@ public class Article{
         if(!(obj instanceof Article))
             return false;
         Article article = (Article) obj;
-        return  this.author.equals(article.author) &&
-                this.title.equals(article.title) &&
-                this.content.equals(article.content) &&
-                this.date.equals(article.date) &&
-                this.category.equals(article.category);
+        return
+            Objects.equals(this.author, article.author) &&
+            Objects.equals(this.title, article.title) &&
+            Objects.equals(this.content, article.content) &&
+            Objects.equals(this.category, article.category) &&
+            Objects.equals(this.date, article.date);
     }
 }

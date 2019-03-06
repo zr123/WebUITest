@@ -21,13 +21,13 @@ public class TestArticle {
     @BeforeClass
     public static void init(){
         articles.add(new Article("zr123", "Title", "Content"));
-        articles.get(0).setDate(new Date(0));
+        articles.get(0).setDate(null);
         articles.get(0).setCategory("Politics");
         articles.add(new Article("someone", "test", "Lorem Ipsum"));
-        articles.get(1).setDate(new Date(0));
+        articles.get(1).setDate(null);
         articles.get(1).setCategory("Sports");
         articles.add(new Article("Picasso", "Photos", "Insert Photos here"));
-        articles.get(2).setDate(new Date(0));
+        articles.get(2).setDate(null);
         articles.get(2).setCategory("Photography");
     }
 
@@ -38,7 +38,7 @@ public class TestArticle {
         assertTrue(file.exists());
         List<String> lines = Files.readAllLines(Paths.get("src/test/resources/export.xml"));
         assertEquals(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><articles><article><author>zr123</author><title>Title</title><content>Content</content><date>1970-01-01T01:00:00+01:00</date><category>Politics</category></article><article><author>someone</author><title>test</title><content>Lorem Ipsum</content><date>1970-01-01T01:00:00+01:00</date><category>Sports</category></article><article><author>Picasso</author><title>Photos</title><content>Insert Photos here</content><date>1970-01-01T01:00:00+01:00</date><category>Photography</category></article></articles>",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><articles><article><author>zr123</author><title>Title</title><content>Content</content><category>Politics</category></article><article><author>someone</author><title>test</title><content>Lorem Ipsum</content><category>Sports</category></article><article><author>Picasso</author><title>Photos</title><content>Insert Photos here</content><category>Photography</category></article></articles>",
                 lines.get(0)
         );
         assertTrue(file.delete());

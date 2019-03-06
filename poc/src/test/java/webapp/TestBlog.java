@@ -25,7 +25,7 @@ public class TestBlog {
 
     @Before
     public void before(){
-        driver.get("localhost:8090");
+        driver.get("localhost:8090/index.xhtml");
     }
 
     @Test
