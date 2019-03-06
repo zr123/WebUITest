@@ -49,7 +49,7 @@ script:
   - robot RobotFramework
   # poc
   - cd poc
-  - mvn jetty:start &
+  - mvn jetty:run &
   - sleep 15
   - mvn test
   - selenium-side-runner src/test/resources/sides/*.side
