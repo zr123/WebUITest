@@ -8,6 +8,5 @@ Funktionalität: blog
 
   Szenario: Ich kann die Blogeinträge nach Kategorie filtern
     Gegeben sei ich bin auf dem Blog
-    Wenn ich den Filter "Politik" anwende
-    Dann möchte ich Einräge der Kategorie "Politik" sehen
-    Und ich möchte keine Einträge außer "Politik" sehen
+    Wenn ich den Filter "Politics" anwende
+    Dann möchte ich Einräge der Kategorie "Politics" sehen

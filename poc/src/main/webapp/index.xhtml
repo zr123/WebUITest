@@ -18,12 +18,12 @@
         </div>
 
         <div id="menu" style="width:250px; display:inline-block; vertical-align:top; margin: 5px; border:1px solid #a8a8a8">
-            <h:form>
-                <p:selectCheckboxMenu label="Kategorie" value="#{indexBean.selectedCategories}" style="margin:10px">
+            <h:form id="menuform">
+                <p:selectCheckboxMenu id="categories" label="Kategorie" value="#{indexBean.selectedCategories}" style="margin:10px">
                     <f:selectItems value="#{indexBean.categories}"/>
                 </p:selectCheckboxMenu>
                 <br/>
-                <p:commandButton value="action" style="margin:10px" action="#{indexBean.filterAction}" ajax="false"/>
+                <p:commandButton id="submitbutton" value="Filtern ..." style="margin:10px" action="#{indexBean.filterAction}" ajax="false"/>
             </h:form>
         </div>
         <div id="content" style="width:920px; display:inline-block; margin: 5px;">

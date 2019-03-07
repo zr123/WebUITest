@@ -40,4 +40,6 @@ public class TestBlog {
         WebElement header = driver.findElement(By.id("header"));
         assertEquals("BLOG", header.getText());
     }
+
+
 }
