@@ -16,7 +16,7 @@ public class Category {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Politics"));
         categories.add(new Category("Photography"));
-        categories.add(new Category("Politics"));
+        categories.add(new Category("Sports"));
         return categories;
     }
 
