@@ -35,7 +35,7 @@ public class Blog {
 
     @Dann("^möchte ich die neusten Blogeinträge sehen$")
     public void möchte_ich_die_neusten_Blogeinträge_sehen() throws Throwable {
-        Article newestArticle = IndexBean.loadArticles().get(0);
+        Article newestArticle = Article.sortArticlesByDate(Article.importArticles(IndexBean.articleFile)).get(0);
         WebElement panel = driver.findElement(By.id("articlelist:0:articles"));
         // TODO fancy-schmancy PrimeWrapper benutzen
         Assert.assertEquals(newestArticle.getTitle(), driver.findElement(By.id("articlelist:0:articles_header")).getText());
