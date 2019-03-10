@@ -56,14 +56,6 @@ public class Article{
         return articles.getArticles();
     }
 
-    public static List<Article> filterArticleCategories(List<Article> articles, String category){
-        if(articles == null)
-            return new ArrayList<>();
-        if(category == null || category.isEmpty())
-            return new ArrayList<>(articles);
-        return articles.stream().filter(a -> category.equals(a.getCategory())).collect(Collectors.toList());
-    }
-
     public static List<Article> filterArticleCategories(List<Article> articles, List<String> categories){
         if(articles == null)
             return new ArrayList<>();

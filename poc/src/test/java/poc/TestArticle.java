@@ -54,46 +54,6 @@ public class TestArticle {
     }
 
     @Test
-    public void testFilterArticleCategories1(){
-        List<Article> filteredArticles = Article.filterArticleCategories(articles, "Politics");
-        assertEquals(filteredArticles.size(), 1);
-        assertEquals(articles.size(), 3);
-        assertEquals(articles.get(0), filteredArticles.get(0));
-    }
-
-    @Test
-    public void testFilterArticleCategories2(){
-        List<Article> filteredArticles = Article.filterArticleCategories(articles, "Sports");
-        assertEquals(filteredArticles.size(), 1);
-        assertEquals(articles.size(), 3);
-        assertEquals(articles.get(1), filteredArticles.get(0));
-    }
-
-    @Test
-    public void testFilterArticleCategories_empty(){
-        List<Article> filteredArticles = Article.filterArticleCategories(articles, "");
-        assertEquals(filteredArticles.size(), 3);
-        assertEquals(articles.size(), 3);
-        assertEquals(articles, filteredArticles);
-    }
-
-    @Test
-    public void testFilterArticleCategories_null(){
-        String nullString = null;
-        List<Article> filteredArticles = Article.filterArticleCategories(articles, nullString);
-        assertEquals(filteredArticles.size(), 3);
-        assertEquals(articles.size(), 3);
-        assertEquals(articles, filteredArticles);
-    }
-
-    @Test
-    public void testFilterArticleCategories_nullList(){
-        List<Article> filteredArticles = Article.filterArticleCategories(null, "");
-        assertEquals(filteredArticles.size(), 0);
-        assertEquals(articles.size(), 3);
-    }
-
-    @Test
     public void testFilterArticleCategoriesList1(){
         ArrayList<String> filter = new ArrayList<>();
         filter.add("Politics");
