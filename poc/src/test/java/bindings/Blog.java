@@ -1,23 +1,20 @@
 package bindings;
 
-import PrimeWrapper.*;
+import PrimeWrapper.DataListWrapper;
+import PrimeWrapper.PrimeWrapper;
+import PrimeWrapper.SelectCheckboxMenuWrapper;
 import beans.IndexBean;
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.de.Dann;
 import cucumber.api.java.de.Gegebensei;
-import cucumber.api.java.de.Und;
 import cucumber.api.java.de.Wenn;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.primefaces.application.resource.PrimeResource;
 import poc.Article;
-
-import javax.swing.*;
 
 public class Blog {
 

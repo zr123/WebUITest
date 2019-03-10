@@ -1,9 +1,7 @@
 package webapp;
 
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import PrimeWrapper.DataListWrapper;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,5 +39,30 @@ public class TestBlog {
         assertEquals("BLOG", header.getText());
     }
 
+    @Test
+    public void testNumberOfArticles(){
+        DataListWrapper dataList = new DataListWrapper(driver, "articlelist");
+        Assert.assertEquals(4, dataList.getListElements().size());
+    }
 
+    @Test
+    public void testSingleGetParameterCategory(){
+        driver.get("http://localhost:8090/index.xhtml?category=Politics");
+        DataListWrapper dataList = new DataListWrapper(driver, "articlelist");
+        Assert.assertEquals(2, dataList.getListElements().size());
+    }
+
+    @Test
+    public void testTwoGetParameterCategory(){
+        driver.get("http://localhost:8090/index.xhtml?category=Politics+Photography");
+        DataListWrapper dataList = new DataListWrapper(driver, "articlelist");
+        Assert.assertEquals(3, dataList.getListElements().size());
+    }
+
+    @Test
+    public void testThreeGetParameterCategory(){
+        driver.get("http://localhost:8090/index.xhtml?category=Politics+Photography+Sports");
+        DataListWrapper dataList = new DataListWrapper(driver, "articlelist");
+        Assert.assertEquals(4, dataList.getListElements().size());
+    }
 }

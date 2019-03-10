@@ -4,14 +4,12 @@ import poc.Article;
 import poc.Category;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
