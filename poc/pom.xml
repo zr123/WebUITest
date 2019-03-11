@@ -88,19 +88,33 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!--
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8090</port>
+                </configuration>
+            </plugin>
+            -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.8.v20171121</version>
+                <version>9.4.15.v20190215</version>
                 <configuration>
                     <httpConnector>
                         <port>8090</port>
                     </httpConnector>
+                    <stopPort>9966</stopPort>
+                    <stopKey>foo</stopKey>
+                    <stopWait>10</stopWait>
                 </configuration>
             </plugin>
         </plugins>
