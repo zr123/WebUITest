@@ -53,4 +53,5 @@ script:
   - sleep 15
   - mvn test
   - selenium-side-runner src/test/resources/sides/*.side
+  - mvn jetty:stop
   - cd ..
