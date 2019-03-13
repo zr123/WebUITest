@@ -2,25 +2,43 @@ package webapp;
 
 import PrimeWrapper.DataListWrapper;
 import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(Parameterized.class)
 public class TestBlog {
 
-    static WebDriver driver;
+    public static WebDriver chromeDriver = new ChromeDriver();
+    public static WebDriver ieDriver = new InternetExplorerDriver();
 
-    @BeforeClass
-    public static void init(){
-        driver = new ChromeDriver();
+    @Parameters
+    public static Collection<WebDriver> data(){
+        List<WebDriver> drivers = new ArrayList<>();
+        drivers.add(chromeDriver);
+        //drivers.add(ieDriver);
+        return drivers;
     }
+
+    @Parameter
+    public WebDriver driver;
 
     @AfterClass
     public static void teardown(){
-        driver.close();
+        chromeDriver.close();
+        ieDriver.close();
     }
 
     @Before
@@ -34,7 +52,7 @@ public class TestBlog {
     }
 
     @Test
-    public void testHeader() throws InterruptedException {
+    public void testHeader() {
         WebElement header = driver.findElement(By.id("header"));
         assertEquals("BLOG", header.getText());
     }
