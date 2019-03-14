@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,13 +21,11 @@ import static org.junit.Assert.assertEquals;
 public class TestBlog {
 
     public static WebDriver chromeDriver = new ChromeDriver();
-    public static WebDriver ieDriver = new InternetExplorerDriver();
 
     @Parameters
     public static Collection<WebDriver> data(){
         List<WebDriver> drivers = new ArrayList<>();
         drivers.add(chromeDriver);
-        //drivers.add(ieDriver);
         return drivers;
     }
 
@@ -38,7 +35,6 @@ public class TestBlog {
     @AfterClass
     public static void teardown(){
         chromeDriver.close();
-        ieDriver.close();
     }
 
     @Before
